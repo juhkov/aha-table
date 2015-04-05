@@ -675,6 +675,7 @@ pagetext pageoftext pagesizetext summarytext itemoftext
 		click: function(e,p) {
 			var column = e.target.templateInstance.model.column;
 			var row = e.target.templateInstance.model.row;
+            row.index = this.data.indexOf(row);
 			var detail = {"row" : row, "column" : column};
 			if (column.editable) {
 				this.edit(e,p);
@@ -684,6 +685,7 @@ pagetext pageoftext pagesizetext summarytext itemoftext
 		dbclick: function(e,p) {
 			var column = e.target.templateInstance.model.column;
 			var row = e.target.templateInstance.model.row;
+            row.index = this.data.indexOf(row);
 			var detail = {"row" : row, "column" : column};
 			this.fire('after-td-dbclick', detail);
 		},
