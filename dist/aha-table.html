@@ -519,7 +519,10 @@ pagetext pageoftext pagesizetext summarytext itemoftext
 
 				if (column.required && !e.target.validity.valid) {
 					this.fire('after-invalid', {"event": e, "row" : row, "column" : column});
-				}
+				}else{
+                    row.index = this.data.indexOf(row);
+                    this.fire('after-edit', {"event": e, "row" : row, "column" : column});
+                }
 			}
 		},
 		sort: function(e, p) {
